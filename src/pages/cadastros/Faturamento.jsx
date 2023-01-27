@@ -12,6 +12,23 @@ export default function EnderecoPrinc({ handleDead }) {
     <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
       <Grid xs={12} md={4}>
         <Controller
+          name="pipedriveUrl"
+          defaultValue=""
+          control={control}
+          render={({ field }) => (
+            <TextField
+              id="link-pipe"
+              label="Pipedrive"
+              variant="outlined"
+              helperText="Codigo do cliente do Pipedrive."
+              fullWidth
+              {...field}
+            />
+          )}
+        />
+      </Grid>
+      <Grid xs={12} md={4}>
+        <Controller
           name="cnpjFaturamento"
           defaultValue=""
           control={control}
@@ -26,23 +43,7 @@ export default function EnderecoPrinc({ handleDead }) {
           )}
         />
       </Grid>
-      <Grid xs={12} md={5} lg={5}>
-        <Controller
-          name="corporateName"
-          defaultValue=""
-          control={control}
-          render={({ field }) => (
-            <TextField
-              id="outlined-basic"
-              fullWidth
-              label="Razão Social"
-              variant="outlined"
-              {...field}
-            />
-          )}
-        />
-      </Grid>
-      <Grid xs={12} md={3}>
+      <Grid xs={12} md={4}>
         <Controller
           name="nomeVendedor"
           defaultValue=""
@@ -59,6 +60,23 @@ export default function EnderecoPrinc({ handleDead }) {
           )}
         />
       </Grid>
+      <Grid xs={12} md={5} lg={6}>
+        <Controller
+          name="corporateName"
+          defaultValue=""
+          control={control}
+          render={({ field }) => (
+            <TextField
+              id="outlined-basic"
+              fullWidth
+              label="Razão Social"
+              variant="outlined"
+              {...field}
+            />
+          )}
+        />
+      </Grid>
+
       <Grid xs={8} md={8} lg={4}>
         <Controller
           name="billingAddress"
@@ -75,7 +93,7 @@ export default function EnderecoPrinc({ handleDead }) {
           )}
         />
       </Grid>
-      <Grid xs={4} md={4} lg={1}>
+      <Grid xs={4} md={4} lg={2}>
         <Controller
           name="billingAddressNumber"
           defaultValue=""
@@ -123,7 +141,7 @@ export default function EnderecoPrinc({ handleDead }) {
           )}
         />
       </Grid>
-      <Grid xs={6} md={2} lg={1}>
+      <Grid xs={6} md={2} lg={2}>
         <Controller
           name="billingState"
           defaultValue=""
@@ -197,7 +215,7 @@ export default function EnderecoPrinc({ handleDead }) {
           {...register("fidelity")}
         />
       </Grid>
-      <Grid xs={4} md={3} lg={2}>
+      <Grid xs={4} md={3} lg={3}>
         <Controller
           name="foundationDate"
           defaultValue=""
@@ -318,7 +336,7 @@ export default function EnderecoPrinc({ handleDead }) {
             Assinado Digitalmente
           </InputLabel>
           <Controller
-            name="serasaConditions"
+            name="documentoAssinado"
             defaultValue=""
             control={control}
             render={({ field }) => (

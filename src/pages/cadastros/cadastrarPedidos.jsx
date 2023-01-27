@@ -15,9 +15,7 @@ import useDebounce from "../../repositories/useDebounce";
 
 export default function CadastrarPedidos() {
   const [errors, setError] = useState();
-  const [dead, setDead] = useState();
   const [productsOptions, setProductsOptions] = useState([]);
-  const [pipeValue, setPipedriveValue] = useState();
   const debouncedChange = useDebounce();
   const navigate = useNavigate();
 
@@ -53,11 +51,10 @@ export default function CadastrarPedidos() {
 
   async function onSubmit(data) {
     try {
-      console.log(data);
       await api.post("/api/pedido", data);
       navigate("/pedidos");
     } catch (err) {
-      setError(err.message);
+      setError(err);
       toast.error(errors);
     }
   }
@@ -93,7 +90,7 @@ export default function CadastrarPedidos() {
           methods.setValue("billingCity", data.municipio);
           methods.setValue("billingState", data.uf);
           methods.setValue("billingCep", data.cep);
-          methods.setValue("dataOfFundation", data.data_inicio_atividade);
+          methods.setValue("foundationDate", data.data_inicio_atividade);
         } catch (err) {
           setError(err.message);
           toast.error(`erro ao buscar endereço: ${errors}`);
@@ -172,17 +169,7 @@ export default function CadastrarPedidos() {
           <h1>Formulário de Pedido</h1>
         </Box>
         <Divider sx={{ marginBottom: "40px" }} />
-        <TextField
-          id="link-pipe"
-          label="Pipedrive"
-          variant="outlined"
-          onChange={handleTest}
-          name="pipedriveUrl"
-          helperText="Codigo do cliente do Pipedrive."
-          fullWidth
-          sx={{ width: "30%" }}
-          {...methods.register("pipedriveUrl")}
-        />
+
         <EnderecoPrinc />
         <Divider sx={{ marginTop: "40px" }} />
 

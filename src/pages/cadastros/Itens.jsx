@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import Grid from '@mui/material/Unstable_Grid2';
-import { Fab, IconButton, TextField, Autocomplete } from '@mui/material';
-import { Add, DeleteOutline } from '@mui/icons-material';
-import { useFieldArray, useFormContext, Controller } from 'react-hook-form';
-import { toast } from 'react-toastify';
-import api from '../../services/axios';
+import React, { useEffect, useState } from "react";
+import Grid from "@mui/material/Unstable_Grid2";
+import { Fab, IconButton, TextField, Autocomplete } from "@mui/material";
+import { Add, DeleteOutline } from "@mui/icons-material";
+import { useFieldArray, useFormContext, Controller } from "react-hook-form";
+import { toast } from "react-toastify";
+import api from "../../services/axios";
 
 export default function Itens({ productsOptions }) {
   const [produtos, setProdutos] = useState([]);
   const [productDescript, setProductDescript] = useState([]);
   const [newProducts, setNewproduct] = useState([]);
-  const [productCode, setProductCode] = useState('');
+  const [productCode, setProductCode] = useState("");
   const { register, control, setValue } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
-    name: 'itensPedido',
+    name: "itensPedido",
   });
 
   // filtrar array de obj
@@ -23,7 +23,7 @@ export default function Itens({ productsOptions }) {
   const handleClickAdd = (e) => {
     e.preventDefault();
     append({
-      productCode: '',
+      productCode: "",
     });
   };
 
@@ -32,7 +32,7 @@ export default function Itens({ productsOptions }) {
       container
       rowSpacing={1}
       columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-      sx={{ height: 'auto' }}
+      sx={{ height: "auto" }}
     >
       {fields.map((field, index) => (
         <Grid
@@ -40,7 +40,7 @@ export default function Itens({ productsOptions }) {
           container
           rowSpacing={1}
           columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-          sx={{ height: 'auto' }}
+          sx={{ height: "auto" }}
         >
           <Grid xs={12} md={4} lg={2}>
             <Controller
@@ -59,7 +59,7 @@ export default function Itens({ productsOptions }) {
           </Grid>
           <Grid xs={12} md={4} lg={2}>
             <Controller
-              name={`itensPedido.${index}.productDescription`}
+              name={`itensPedido.${index}.commercialDescription`}
               control={control}
               render={({ field }) => {
                 return (
@@ -69,7 +69,7 @@ export default function Itens({ productsOptions }) {
                     getOptionLabel={(option) => {
                       return option.commercialDescription;
                     }}
-                    sx={{ width: 'auto' }}
+                    sx={{ width: "auto" }}
                     onChange={(event, value) => {
                       field.onChange(event);
                       setValue(
@@ -145,9 +145,9 @@ export default function Itens({ productsOptions }) {
             xs={12}
             md={1}
             sx={{
-              display: 'flex',
-              justifyContent: 'space-around',
-              marginTop: '4px',
+              display: "flex",
+              justifyContent: "space-around",
+              marginTop: "4px",
             }}
           >
             <Fab
@@ -156,7 +156,7 @@ export default function Itens({ productsOptions }) {
               size="medium"
               onClick={() =>
                 fields.length === 1
-                  ? toast.error('Campo não pode ser removido')
+                  ? toast.error("Campo não pode ser removido")
                   : remove(index)
               }
             >
