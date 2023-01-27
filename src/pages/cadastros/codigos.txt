@@ -1,0 +1,73 @@
+AutoComplete
+
+const filtrandoDescricao = (data) => {
+  //   const listOfproduct = [];
+  //   data.map((product) => {
+  //     listOfproduct.push(product.commercialDescription);
+  //   });
+  //   setProductDescript(listOfproduct);
+  // };
+  // console.log(produtos);
+  // useEffect(() => {
+  //   try {
+  //     api
+  //       .get("/api/products")
+  //       .then((respo) => {
+  //         filtrandoDescricao(respo.data);
+  //         setProdutos(respo.data);
+  //       })
+  //       .catch((err) => {
+  //         console.log("problema");
+  //       });
+  //   } catch (err) {
+  //     console.log("ruim");
+  //   }
+  // }, []);
+
+  // const codigoProduto = produtos.filter((obj) => {
+  //   return obj.commercialDescription === newProducts;
+  // });
+
+  // console.log(productCode);
+
+  // useEffect(() => {
+  //   setProductCode(
+  //     codigoProduto.length === 0 ? "" : codigoProduto[0].productCode
+  //   );
+  // }, [codigoProduto]);
+
+  {/* <Grid xs={12} md={4} lg={2}>
+            <TextField
+              id="codigoDoProduto"
+              label="Código"
+              variant="outlined"
+              name="productCode"
+              fullWidth
+              value={productCode}
+              {...register(`itensPedido.${index}.productCode`)}
+            />
+          </Grid> */}
+          {/* <Grid xs={12} md={4} lg={2}>
+            <Controller name="productCode" control={control}>
+              <Autocomplete
+                onChange={(newProduct) =>
+                  setNewproduct(newProduct.target.textContent)
+                }
+                id="combo-box-demo"
+                options={productDescript}
+                sx={{ width: "auto" }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="Descrição"
+                    variant="outlined"
+                    fullWidth
+                    {...register(`itensPedido.${index}.descricaoProduto`)}
+                  />
+                )}
+              />
+            </Controller>
+          </Grid> */}
+
+          #################################################################
+          
