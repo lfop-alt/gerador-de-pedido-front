@@ -4,7 +4,7 @@ import { getToken } from "./auth";
 const token = getToken();
 
 const api = axios.create({
-  baseURL: "http://127.0.0.1:3003",
+  baseURL: "https://gerador-pedido.onrender.com",
 });
 
 api.defaults.headers.common = {
